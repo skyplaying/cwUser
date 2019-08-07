@@ -1,0 +1,64 @@
+{
+  "pages": [
+    "pages/shopCenter/shoppingDetails/shoppingDetails",
+    "pages/index/index",
+    "pages/shopCenter/cancelOrder/cancelOrder",
+    "pages/order/payComplete/payComplete",
+    "pages/order/petInfo/petInfo",
+    "pages/shopCenter/sevicersList/sevicersList",
+    "pages/shopCenter/palceOrder/palceOrder",
+    "pages/shopCenter/shopPage/shopPage",
+    "pages/test/test",
+    "pages/order/getService/getService",
+    "pages/order/evaluate/evaluate",
+    "pages/order/oderDetail/oderDetail",
+    "pages/order/myOrder/myOrder",
+    "pages/mine/my/my",
+    "pages/mine/withdraw/withdraw",
+    "pages/mine/uniQuestion/uniQuestion",
+    "pages/mine/myAddress/myAddress",
+    "pages/userAdvise/userAdvise",
+    "pages/login/login",
+    "pages/register/register",
+    "pages/shopCenter/shopCenter/shopCenter",
+    "pages/order/orderCenter/orderCenter",
+    "pages/mine/myShop/myShop",
+    "pages/mine/Stores/Stores",
+    "pages/mine/updateRecord/updateRecord",
+    "pages/mine/transOrder/transOrder",
+    "pages/indexModule/getMoneyCode/getMoneyCode",
+    "pages/indexModule/goodsManage/goodsManage",
+    "pages/indexModule/proxyGoods/proxyGoods",
+    "pages/indexModule/staffManage/staffManage",
+    "pages/indexModule/switchShop/switchShop",
+    "pages/index1/index1",
+    "pages/pet/petType/petType"
+  ],
+  "window": {
+    "defaultTitle": "宠善堂",
+    "titleBarColor": "white",
+    "backgroundColor": "white"
+  },
+  "tabBar": {
+    "textColor": "#A8D8B9",
+    "selectedColor": "#A8D8B9",
+    "backgroundColor": "#ffffff",
+    "items": [
+      {
+        "pagePath": "pages/index/index",
+        "name": "首页",
+        "icon": "static/index/wushou.png",
+        "activeIcon": "static/index/home.png"
+      },
+      {
+        "pagePath": "pages/mine/my/my",
+        "name": "我的",
+        "icon": "static/index/wuwo.png",
+        "activeIcon": "static/index/wo.png"
+      }
+    ]
+  },
+  "usingComponents": {
+    "load-image": "/components/uni-load-more/uni-load-more"
+  }
+}

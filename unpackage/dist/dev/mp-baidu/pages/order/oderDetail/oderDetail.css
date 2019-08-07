@@ -1,0 +1,151 @@
+.page {
+  background-color: #f2f2f2;
+  font-family: PingFangSC-regular;
+}
+.status {
+  padding: 48rpx 550rpx 20rpx 20rpx;
+  height: 50rpx;
+  color: #101010;
+  font-size: 36rpx;
+  text-align: left;
+}
+.swiper-box {
+  width: 662rpx;
+  height: 260rpx;
+}
+.orderCard {
+  margin: 20rpx;
+  width: 712rpx;
+  line-height: 40rpx;
+  border-radius: 20rpx;
+  background-color: #ffffff;
+  border: 2rpx solid rgba(255, 255, 255, 0);
+}
+.orderCard .info {
+  margin: 16rpx 22rpx;
+  height: 40rpx;
+  color: #101010;
+  font-size: 28rpx;
+  text-align: left;
+}
+.orderCard .shop {
+  margin-top: 30rpx;
+}
+.orderCard .shop image {
+  margin-left: 26rpx;
+  width: 54rpx;
+  height: 50rpx;
+  border-radius: 10rpx;
+  vertical-align: middle;
+}
+.orderCard .shop .shopName {
+  margin-left: 18rpx;
+  width: 168rpx;
+  height: 40rpx;
+  color: #101010;
+  font-size: 28rpx;
+  text-align: left;
+}
+.orderCard .orderInfo {
+  margin-left: 26rpx;
+  margin-top: 18rpx;
+}
+.orderCard .orderInfo text {
+  vertical-align: middle;
+  line-height: 40px;
+}
+.orderCard .orderInfo .goodName {
+  height: 40rpx;
+  color: #101010;
+  font-size: 28rpx;
+  text-align: left;
+  margin-top: 8rpx;
+}
+.orderCard .orderInfo .orderNo {
+  margin-left: 250rpx;
+  height: 40rpx;
+  color: #101010;
+  font-size: 28rpx;
+  text-align: left;
+}
+.orderCard .orderInfo .time {
+  margin-left: 214rpx;
+  height: 40rpx;
+  color: #101010;
+  font-size: 28rpx;
+  text-align: left;
+}
+.orderCard .orderInfo .payType {
+  margin-left: 384rpx;
+  height: 40rpx;
+  color: #101010;
+  font-size: 28rpx;
+  text-align: left;
+}
+.petSwiper {
+  padding: 20rpx;
+}
+.petSwiper .content {
+  padding: 20rpx;
+  background-color: white;
+}
+.petSwiper .flowTitle {
+  height: 40rpx;
+  color: #101010;
+  font-size: 28rpx;
+  text-align: left;
+  padding: 20rpx;
+  margin-bottom: 10rpx;
+}
+.serviceList {
+  padding: 20rpx;
+  margin-bottom: 40rpx;
+}
+.serviceList .content {
+  padding: 20rpx 40rpx;
+  background-color: white;
+}
+.serviceList .tit {
+  height: 40rpx;
+  color: #101010;
+  font-size: 28rpx;
+  text-align: left;
+}
+.serviceList .name {
+  height: 34rpx;
+  color: #101010;
+  font-size: 24rpx;
+  text-align: left;
+}
+.serviceList .price {
+  color: #101010;
+  font-size: 24rpx;
+  margin-left: 480rpx;
+}
+.total .totalName {
+  margin-left: 415rpx;
+  height: 34rpx;
+  color: #101010;
+  font-size: 24rpx;
+  text-align: left;
+}
+.total .totalPay {
+  margin-left: 22rpx;
+  height: 50rpx;
+  color: #101010;
+  font-size: 28rpx;
+  text-align: left;
+  padding-right: 58rpx;
+}
+.cancel {
+  width: 100%;
+  height: 98rpx;
+  line-height: 98rpx;
+  background-color: #a8d8b9;
+  text-align: center;
+  border: 2rpx solid rgba(255, 255, 255, 0);
+  color: #0e5e56;
+}
+
+
+/*# sourceMappingURL=../../../../.sourcemap/mp-baidu/pages/order/oderDetail/oderDetail.js.map*/

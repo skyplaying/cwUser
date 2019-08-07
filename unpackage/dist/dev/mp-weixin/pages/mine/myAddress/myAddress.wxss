@@ -1,0 +1,35 @@
+.addressBar {
+  margin-left: 20rpx;
+  margin-top: 24rpx;
+  width: 710rpx;
+  height: 90rpx;
+  line-height: 40rpx;
+  border-radius: 10rpx;
+  border: 2rpx solid rgba(255, 255, 255, 0);
+}
+.addressBar .addressIcon {
+  margin-left: 24rpx;
+  width: 44rpx;
+  height: 44rpx;
+  vertical-align: middle;
+  display: inline-block;
+}
+.addressBar .addressName {
+  margin-left: 27rpx;
+  height: 20rpx;
+  color: #101010;
+  font-size: 28rpx;
+  text-align: left;
+  font-family: PingFangSC-regular;
+}
+.addressBar .rightIcon {
+  position: absolute;
+  left: 676rpx;
+  width: 30rpx;
+  height: 30rpx;
+  background-color: #dfdfdf;
+  vertical-align: middle;
+  z-index: 50;
+  margin-top: 5rpx;
+}
+

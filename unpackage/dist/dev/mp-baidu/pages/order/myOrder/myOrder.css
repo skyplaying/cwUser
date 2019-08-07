@@ -1,0 +1,151 @@
+.page {
+  background-color: #f2f2f2;
+}
+.orderCard {
+  margin-left: 32rpx;
+  margin-top: 20rpx;
+  padding-top: 20rpx;
+  width: 686rpx;
+  line-height: 40rpx;
+  border-radius: 20rpx;
+  background-color: white;
+  border: 2rpx solid rgba(255, 255, 255, 0);
+  padding-bottom: 24rpx;
+}
+.orderCard .numName {
+  margin-left: 24rpx;
+  color: #101010;
+  font-size: 24rpx;
+  text-align: left;
+  font-family: PingFangSC-regular;
+}
+.orderCard .orderNo {
+  margin-left: 32rpx;
+  color: #101010;
+  font-size: 24rpx;
+  text-align: left;
+  font-family: PingFangSC-regular;
+}
+.orderCard .orderStatus {
+  margin-left: 118rpx;
+  height: 44rpx;
+  color: #0e5e56;
+  font-size: 32rpx;
+  font-family: PingFangSC-regular;
+}
+.shop {
+  margin-top: 40rpx;
+}
+.shop .shopImg {
+  margin-left: 24rpx;
+  width: 54rpx;
+  height: 50rpx;
+  border-radius: 10rpx;
+  vertical-align: middle;
+}
+.shop .shopName {
+  margin-left: 18rpx;
+  height: 40rpx;
+  color: #101010;
+  font-size: 28rpx;
+  text-align: left;
+  font-family: PingFangSC-regular;
+  vertical-align: middle;
+}
+.shop .toRight {
+  margin-left: 368rpx;
+  width: 30rpx;
+  height: 30rpx;
+  vertical-align: middle;
+}
+.goodsList .goodsName {
+  margin-left: 96rpx;
+  height: 34rpx;
+  color: #101010;
+  font-size: 24rpx;
+  text-align: left;
+  font-family: PingFangSC-regular;
+}
+.goodsList .goodsPrice {
+  margin-left: 450rpx;
+  height: 34rpx;
+  color: #101010;
+  font-size: 24rpx;
+  text-align: left;
+  font-family: PingFangSC-regular;
+}
+.line {
+  margin-left: 96rpx;
+  width: 562rpx;
+  height: 2rpx;
+  border-bottom: 2rpx solid #eaeaea;
+  margin-top: 14rpx;
+}
+.total {
+  margin-left: 456rpx;
+  margin-top: 8rpx;
+  width: 48rpx;
+  height: 34rpx;
+  color: #101010;
+  font-size: 24rpx;
+  text-align: left;
+  font-family: PingFangSC-regular;
+}
+.totalPay {
+  margin-left: 22rpx;
+  height: 50rpx;
+  color: #101010;
+  font-size: 28rpx;
+  text-align: left;
+  font-family: PingFangSC-regular;
+}
+.singleGood .img {
+  margin-left: 24rpx;
+  width: 124rpx;
+  height: 98rpx;
+  border-radius: 10rpx;
+  vertical-align: middle;
+  display: inline-block;
+}
+.singleGood .info {
+  margin-left: 68rpx;
+  vertical-align: middle;
+  display: inline-block;
+}
+.singleGood .info .goodName {
+  height: 40rpx;
+  width: 300rpx;
+  color: #101010;
+  font-size: 28rpx;
+  text-align: left;
+  font-family: PingFangSC-regular;
+}
+.singleGood .info .price {
+  height: 40rpx;
+  color: #101010;
+  font-size: 28rpx;
+  text-align: left;
+  font-family: PingFangSC-regular;
+}
+.singleGood .right {
+  display: inline-block;
+  margin-left: 250rpx;
+  width: 30rpx;
+  height: 30rpx;
+  vertical-align: middle;
+}
+.evaluate {
+  margin-left: 482rpx;
+  width: 180rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  border-radius: 120rpx;
+  color: #a8d8b9;
+  font-size: 28rpx;
+  text-align: center;
+  font-family: Arial;
+  border: 2rpx solid #a8d8b9;
+}
+
+
+/*# sourceMappingURL=../../../../.sourcemap/mp-baidu/pages/order/myOrder/myOrder.js.map*/

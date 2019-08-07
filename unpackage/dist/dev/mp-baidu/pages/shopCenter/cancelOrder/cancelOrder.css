@@ -1,0 +1,42 @@
+.content {
+  padding: 50rpx 60rpx;
+  text-align: left;
+  font-family: PingFangSC-regular;
+}
+.content .t1 {
+  color: #101010;
+  font-size: 56rpx;
+}
+.content .t2 {
+  margin-left: 145rpx;
+  background-color: #ffffff;
+  color: #999999;
+  font-size: 28rpx;
+  text-align: center;
+  font-family: Arial;
+  border: 2rpx solid rgba(255, 255, 255, 0);
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  top: -15rpx;
+}
+.content .resonBox > view {
+  margin-top: 25rpx;
+}
+.content .resonBox > view > text {
+  margin-left: 15rpx;
+  vertical-align: middle;
+}
+.content .resonBox {
+  margin-top: 80rpx;
+}
+.content .resonBox .r1 {
+  color: #101010;
+  font-size: 28rpx;
+}
+.content .resonBox radio {
+  vertical-align: middle;
+}
+
+
+/*# sourceMappingURL=../../../../.sourcemap/mp-baidu/pages/shopCenter/cancelOrder/cancelOrder.js.map*/

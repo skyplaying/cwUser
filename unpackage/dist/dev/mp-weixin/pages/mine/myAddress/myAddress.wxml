@@ -1,0 +1,1 @@
+<view class="page"><block wx:if="{{isok}}"><view class="conatiner"><view data-event-opts="{{[['tap',[['chooseAddress']]]]}}" class="addressBar" bindtap="__e"><image class="addressIcon" src="../../../static/mine/dingwei.png"></image><text class="addressName">{{address}}</text><image class="rightIcon" src="../../../static/mine/rightGray.png"></image></view></view></block></view>

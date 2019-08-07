@@ -1,0 +1,7 @@
+{
+  "defaultTitle": "商家名",
+  "usingComponents": {
+    "uni-popup": "/components/uni-popup/uni-popup",
+    "uni-number": "/components/uni-number-box/uni-number-box"
+  }
+}

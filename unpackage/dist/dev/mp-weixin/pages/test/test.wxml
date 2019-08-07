@@ -1,0 +1,1 @@
+<view class="page"><block wx:if="{{isok}}"><view class="container"></view></block></view>

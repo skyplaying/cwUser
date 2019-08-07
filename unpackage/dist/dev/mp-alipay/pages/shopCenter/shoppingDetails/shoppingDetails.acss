@@ -1,0 +1,62 @@
+.shopSw {
+  width: 100%;
+  height: 520rpx;
+  overflow: hidden;
+}
+.toRight {
+  width: 28rpx;
+  height: 28rpx;
+  position: absolute;
+  right: 20rpx;
+}
+.selectBox {
+  height: 420rpx;
+  padding: 20rpx;
+}
+.selectBox .price {
+  color: #0e5e56;
+  font-size: 32rpx;
+  font-family: PingFangSC-bold;
+}
+.selectBox .tit1 {
+  color: #999999;
+  font-size: 28rpx;
+  font-family: PingFangSC-regular;
+}
+.goodSwiper {
+  height: 200rpx;
+  width: 300rpx;
+  margin-left: 90rpx;
+  margin-top: 38rpx;
+}
+.goodSwiper .kk {
+  width: 170rpx;
+  height: 200rpx;
+}
+.goodSwiper .goodsBox {
+  width: 170rpx;
+  height: 200rpx;
+}
+.goodSwiper .goodImg {
+  margin-right: 8rpx;
+  width: 160rpx;
+  height: 102rpx;
+  border-radius: 6rpx;
+  display: inline-block;
+}
+.goodSwiper .goodName {
+  height: 28rpx;
+  color: #101010;
+  font-size: 24rpx;
+  text-align: center;
+  font-family: Arial-regular;
+}
+.goodSwiper .price {
+  height: 32rpx;
+  color: #101010;
+  font-size: 28rpx;
+  text-align: center;
+  font-family: Arial-regular;
+  margin-top: 12rpx;
+}
+

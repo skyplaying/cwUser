@@ -1,0 +1,138 @@
+.page {
+  font-family: PingFangSC-regular;
+}
+.swiperBox {
+  height: auto;
+  position: relative;
+  width: 100%;
+}
+.shopSwiper {
+  width: 100%;
+  height: 350rpx;
+}
+.deName {
+  color: #101010;
+  font-size: 36rpx;
+  text-align: left;
+  width: 100%;
+  height: 106rpx;
+  line-height: 106rpx;
+}
+.bannerImg {
+  width: 100%;
+  height: 350rpx;
+}
+.otherBox {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: auto;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin-bottom: 50rpx;
+}
+.otherBox > view {
+  width: 350rpx;
+  margin-right: 14rpx;
+}
+.shopMiddleBox {
+  padding: 20rpx;
+}
+.shopMiddleBox .t1 {
+  color: #101010;
+  font-size: 28rpx;
+  text-align: left;
+}
+.shopMiddleBox .shopIntroduce {
+  width: 710rpx;
+  height: 186rpx;
+  color: #999999;
+  font-size: 24rpx;
+  text-align: left;
+  margin-top: 15rpx;
+}
+.shopMiddleBox .otherGood {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+.shopMiddleBox .otherGood .goodsImg {
+  width: 350rpx;
+  height: 305rpx;
+  border-radius: 10rpx 10rpx 0px 0px;
+}
+.shopMiddleBox .otherGood .g1 {
+  color: #101010;
+  font-size: 28rpx;
+  text-align: center;
+  font-family: Arial-regular;
+}
+.shopMiddleBox .otherGood .g2 {
+  color: #999999;
+  font-size: 24rpx;
+  text-align: left;
+  font-family: Arial-regular;
+}
+.shopMiddleBox .otherGood .price {
+  color: #101010;
+  font-size: 16px;
+  text-align: center;
+  font-family: Arial-regular;
+  margin-top: 35rpx;
+}
+.shopTopBox {
+  padding: 28rpx 32rpx;
+  width: 685rpx;
+  height: auto;
+}
+.shopTopBox .addressBox {
+  position: relative;
+}
+.shopTopBox .t1 {
+  height: 90rpx;
+  margin-top: 32rpx;
+}
+.shopTopBox .name1 {
+  color: #101010;
+  font-size: 28rpx;
+  text-align: left;
+  margin-left: 12rpx;
+  vertical-align: middle;
+}
+.shopTopBox .name2 {
+  color: #101010;
+  font-size: 28rpx;
+  text-align: left;
+  margin-left: 228rpx;
+  vertical-align: middle;
+}
+.shopTopBox .icon1 {
+  width: 32rpx;
+  height: 32rpx;
+  vertical-align: middle;
+}
+.shopTopBox .icon2 {
+  width: 26rpx;
+  height: 40rpx;
+  vertical-align: middle;
+}
+.shopTopBox .icon3 {
+  position: absolute;
+  right: 45rpx;
+  width: 30rpx;
+  height: 30rpx;
+  vertical-align: middle;
+  top: 5rpx;
+}
+.shopTopBox .infoText {
+  color: #101010;
+  font-size: 28rpx;
+  text-align: left;
+}
+

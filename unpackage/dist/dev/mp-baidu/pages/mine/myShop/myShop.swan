@@ -1,0 +1,1 @@
+<view class="page"><block s-if="{{isok}}"><view class="conatiner"><uni-load-more vue-id="1" status="{{status}}"></uni-load-more></view></block><block s-else><view class="container-loading"><image src="../../static/loading.gif"></image></view></block></view>

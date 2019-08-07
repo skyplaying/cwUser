@@ -1,0 +1,407 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	/* .imageUploadContainer {
+		padding: 10upx 5upx;
+		margin: 10upx 5upx;
+	} */
+.dragging {
+		opacity: 0.5;
+}
+.imageUploadList {
+		display: -webkit-box;
+		display: -webkit-flex;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-flex-wrap: wrap;
+		    -ms-flex-wrap: wrap;
+		        flex-wrap: wrap;
+}
+.imageItem,
+	.imageUpload {
+		width: 160rpx;
+		height: 160rpx;
+		margin: 10rpx 0;
+		margin-left: 16rpx;
+}
+.imageItem-row-first {
+		margin-left: 0;
+}
+.imageDel {
+		position: relative;
+		left: 120rpx;
+		bottom: 160rpx;
+		background-color: rgba(0, 0, 0, 0.5);
+		color: #ffffff;
+		width: 36rpx;
+		text-align: center;
+		line-height: 36rpx;
+		border-radius: 60rpx;
+		font-size: 40rpx;
+}
+.imageItem image,
+	.moveImage,
+	.imageCover {
+		width: 160rpx;
+		height: 160rpx;
+		border-radius: 8rpx;
+}
+ 
+	/* 注释掉的后面可以改回来 */
+.imageUpload {
+		position: relative;
+		-webkit-box-sizing: border-box;
+		        box-sizing: border-box;
+		/* border: 1px solid #D9D9D9; */
+		/* border-radius: 8upx; */
+	
+		background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFYAAABWCAYAAABVVmH3AAAE20lEQVR4nO2d6Uv7TBCAp7V4onjhfaIgKgh+96N/th/97oUn3rfiLZ6ov/edhZVMOo3ZNLvdhnlA2q6tmTxu9shO0ty//wEhdfKVDiCriFhLFIIvFhYWfp/Pzs6qx9XVVfj+/lbPZ2ZmoKamBtbX1+Hz81OVTU9PQ21tLWxubsL7+7sqm5ychPr6etjd3YXn52dVNj4+Ds3NzbC/vw+Pj4+qbHR0FFpbW+Ho6Aju7u5U2fDwMLS3t8PZ2RlcX1+rsv7+fujq6oKrqys4Pz9XZd3d3dDX1wc3NzdwcnKiyjo7O2FwcBAeHh7g4OBAleHfx+1gHBgPgnFgPK+vr7C9va3KGhsbYWJiQu0X7h+C+4X79/X1BWtra6oM9x89IEtLS7++5ufnidhcsI1FsVqoEB8UHBYrTYElSI29vb2tZCxVTUdHB3ktNdYSRCx2VII5nDciVvf+ghmcN2kKLEE6Lxw34jhNMANrLI6zg5AaK1KTwXkjYvWMQzCD80bE6mmqYAbnTTovS5DO6+LiQp14EMzAGtvb20vKSI0VqcngvBGxW1tbzoLJEpw3Ivbt7c1ZMFmC8yadlyVI53V6egoNDQ2VjKcqwRo7MDBAykiNFanJ4LwRsXpNSDCD80bE6oU/wQzOW4F5n1c8PT39ruDi6mp4CcRXiFhcEvaJn58fWF5eVo9IPp+Hubk59egTnDcSIdYIn0ChWir32hc4b0SsTnIQzOC8EbGYQSKYw3nzq7HKEEQs5jgJ5nDeiFhMIBPM4byRcwWY3DU0NOQ0KGyfVlZWII3856mpqaLVUhccHx8XJROSGluJ3K3Ly8tUpCJ6IuEazpt0XpYgYl03AwgmGadBLpeDnp6eVP6WKZw3r9M4MZN6cXGRlOGUtlDw7xRHZBonpqcL5nDeiFid8y+YwXmTzssSRCxehSKYw3kjYvESH8EczhsRi9dR+QSe0A6f1PbtJDfCeSNR6ovTfAEl4jS1ra1NzcfxTL2PYjlv/g0IQ+DVhvhTbUgbmwKcN69nXtVE5MwLL/gVzOG8EbH6KmrBDM6bf11sRiBiq7H39QHOm3ReKRHZed3f3zsNJitw3sgE4fDwUM1yygFnR3HTQbn3Rn0+nCOF7yuVb1ZODKagt3AcVdd5oYSgCP1cl8f9p9iG1Nhya2tSwjsdfF0NydCcNyJ2ZGTEVSzkEAzKS+PQdA3njYjFJN+WlhZX8RQRRypXu/Vn9O9Mm4NyjxD0Fh4VELF7e3up3B6K24FwrSz13r8+GyXxLym2jgT0Fs7fsnLaMGoHdA3jxCRpBsodFdiCiHXRDEQdpkllcEM2l3DeiNixsTFnwQTRIv5qBtLaDkc52+G8EbEvLy/Q1NSUeANJMels4paVux0T0Ftk57Wzs+PNvQ25poETU+m2FEFv4fwtr2ZewSaBE1ZqNBFnZOEaIhZv9VlJ9GghTi0MjyzCY9GweJs1m/NGmgK8f2pcompFOUOgUnKTynExk+O8kfOxuD5eV1dnNYgs8vHxUZRmRJqCjY0NpwFlBc6bV51XliBipRlIBudN1rxSInLNC3P+BXM4b0SsviW9YAbnTTovSxCxPl7mUw1w3qTzSgm5Xb8jiNjgd6cI8eG8SY21RFGrq+3LtyOZfTtSmJx8A50dpCmwhIi1hIi1xH+6C5PAkp0lXgAAAABJRU5ErkJggg==) no-repeat; /* 修改了下背景图 */
+		background-size: 100%;
+		left: 30rpx;
+}
+ 
+	/* 	.imageUpload:before,
+	.imageUpload:after {
+		content: " ";
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		-webkit-transform: translate(-50%, -50%);
+		transform: translate(-50%, -50%);
+		background-color: #D9D9D9;
+	}
+ */
+.imageUpload:before {
+		width: 4rpx;
+		height: 79rpx;
+}
+.imageUpload:after {
+		width: 79rpx;
+		height: 4rpx;
+}
+.moveImage {
+		position: absolute;
+		-webkit-transform: scale(1.2);
+		    -ms-transform: scale(1.2);
+		        transform: scale(1.2);
+}
+.imageCover {
+		position: relative;
+		left: 0;
+		bottom: 178rpx;
+		width: 100%;
+		text-align: center;
+		line-height: 160rpx;
+		background-color: rgba(0, 0, 0, 0.5);
+		font-size: 24rpx;
+		color: white;
+}
+.firstImageLabel {
+		position: relative;
+		left: 0;
+		bottom: 98rpx;
+		width: 100%;
+		text-align: center;
+		line-height: 40rpx;
+		background-color: #0081ff;
+		font-size: 24rpx;
+		color: white;
+		opacity: 0.8;
+}
+

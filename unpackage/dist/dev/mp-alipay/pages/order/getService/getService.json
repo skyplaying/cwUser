@@ -1,0 +1,7 @@
+{
+  "defaultTitle": "预约服务",
+  "usingComponents": {
+    "uni-popup": "/components/uni-popup/uni-popup",
+    "w-picker": "/components/w-picker/w-picker"
+  }
+}
