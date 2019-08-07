@@ -288,9 +288,9 @@ page {
 	width: 100%;
 	height: 100%;
 	line-height: 1.5;
-	background-color: #eee;
-	color: #353535;
-	font-size: 32rpx;
+	background-color: white;
+	/* 		color: #353535;
+		font-size: 32rpx; */
 	font-family: -apple-system-font, 'Helvetica Neue', Helvetica, 'Microsoft YaHei', sans-serif;
 	font-weight: normal;
 	word-wrap: break-word;
@@ -301,8 +301,9 @@ input {
 	vertical-align: middle;
 	width: 100%;
 }
-image {
-	width: 100%;
+button::after {
+	border-radius: 0;
+	border: 0;
 }
 .textarea {
 	font-size: 28rpx;
@@ -366,7 +367,7 @@ image {
 /* 是否同意协议选择框 */
 .mc-agree {
 	display: block;
-	padding: .5em 15px;
+	padding: 0.5em 15px;
 	font-size: 13px;
 	color: #999999;
 }
@@ -374,14 +375,14 @@ image {
 	position: relative;
 	top: 2px;
 	display: inline-block;
-	border: 1px solid #D1D1D1;
-	background-color: #FFFFFF;
+	border: 1px solid #d1d1d1;
+	background-color: #ffffff;
 	border-radius: 3px;
 	width: 11px;
 	height: 11px;
 }
 .mc-agree_checkbox-icon {
-	color: #1478E3;
+	color: #1478e3;
 	position: absolute;
 	top: 1px;
 	left: 1px;

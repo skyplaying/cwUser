@@ -1,21 +1,72 @@
 {
   "pages": [
-    "pages/index/index"
+    "pages/shopCenter/shoppingDetails/shoppingDetails",
+    "pages/index/index",
+    "pages/shopCenter/cancelOrder/cancelOrder",
+    "pages/order/payComplete/payComplete",
+    "pages/order/petInfo/petInfo",
+    "pages/shopCenter/sevicersList/sevicersList",
+    "pages/shopCenter/palceOrder/palceOrder",
+    "pages/shopCenter/shopPage/shopPage",
+    "pages/test/test",
+    "pages/order/getService/getService",
+    "pages/order/evaluate/evaluate",
+    "pages/order/oderDetail/oderDetail",
+    "pages/order/myOrder/myOrder",
+    "pages/mine/my/my",
+    "pages/mine/withdraw/withdraw",
+    "pages/mine/uniQuestion/uniQuestion",
+    "pages/mine/myAddress/myAddress",
+    "pages/userAdvise/userAdvise",
+    "pages/login/login",
+    "pages/register/register",
+    "pages/shopCenter/shopCenter/shopCenter",
+    "pages/order/orderCenter/orderCenter",
+    "pages/mine/myShop/myShop",
+    "pages/mine/Stores/Stores",
+    "pages/mine/updateRecord/updateRecord",
+    "pages/mine/transOrder/transOrder",
+    "pages/indexModule/getMoneyCode/getMoneyCode",
+    "pages/indexModule/goodsManage/goodsManage",
+    "pages/indexModule/proxyGoods/proxyGoods",
+    "pages/indexModule/staffManage/staffManage",
+    "pages/indexModule/switchShop/switchShop",
+    "pages/index1/index1",
+    "pages/pet/petType/petType"
   ],
   "subPackages": [],
   "window": {
     "navigationBarTextStyle": "black",
     "navigationBarTitleText": "宠善堂",
-    "navigationBarBackgroundColor": "skyblue",
+    "navigationBarBackgroundColor": "white",
     "backgroundColor": "white"
+  },
+  "tabBar": {
+    "color": "#A8D8B9",
+    "selectedColor": "#A8D8B9",
+    "borderStyle": "white",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "static/index/wushou.png",
+        "selectedIconPath": "static/index/home.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/mine/my/my",
+        "iconPath": "static/index/wuwo.png",
+        "selectedIconPath": "static/index/wo.png",
+        "text": "我的"
+      }
+    ]
   },
   "permission": {
     "scope.userLocation": {
-      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+      "desc": "你的位置信息将用于小程序的效果展示"
     }
   },
   "usingComponents": {
     "load-image": "/components/uni-load-more/uni-load-more"
-  },
-  "sitemapLocation": "sitemap70.json"
+  }
 }

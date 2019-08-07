@@ -1,364 +1,815 @@
 <template>
 	<view class="page">
 		<view class="conatiner" v-if="isok">
-			<view class="mc-bg-white p15">
-				<view class="mc-space-between mc-f14">
-					<view class="icon-location mc-light-gray" @click="chooseCity">
-						<text class="ml5 mc-black">{{city}}</text>
-					</view>
-					<view class="icon-scan mc-blue">
-						<text class="ml5 mc-black" @click="">扫码进店</text>
-					</view>
+			<!-- 第一个轮播图 -->
+			<view class="bannerBox">
+				<swiper class="banner1" style="height: 328upx;" :indicator-dots="indicatorDots" :autoplay="autoplay" :circular="true" :interval="interval" :duration="duration">
+					<block v-for="(item, index) in bannerList1" :key="index">
+						<swiper-item>
+							<view @click="getIndex(index)" class="Img"><image :src="item.img" mode="widthFix" /></view>
+						</swiper-item>
+					</block>
+				</swiper>
+
+				<!-- 第二个轮播图 -->
+				<swiper class="banner2" style="height: 268upx;" :indicator-dots="indicatorDots" :autoplay="autoplay" :circular="true" :interval="interval" :duration="duration">
+					<block v-for="(item, index) in bannerList1" :key="index">
+						<swiper-item class="sw2">
+							<view @click="getIndex(index)" class="Img"><image :src="item.img" mode="widthFix" /></view>
+						</swiper-item>
+					</block>
+				</swiper>
+			</view>
+			<!--  流程图 -->
+			<view class="flowBox">
+				<view>
+					<image src="/static/index/yuyue.png"></image>
+					<view>预约服务</view>
 				</view>
-				<view class="banner mt15">
-					<image src="../../static/banner.png" mode="widthFix"></image>
+				<view>
+					<image src="/static/index/shangmen.png"></image>
+					<view>上门迎接</view>
+				</view>
+				<view>
+					<image src="/static/index/qingjie.png"></image>
+					<view>清洁整理</view>
+				</view>
+				<view>
+					<image src="/static/index/yuyue.png"></image>
+					<view>正式告别</view>
+				</view>
+				<view>
+					<image src="/static/index/huiyi.png"></image>
+					<view>永恒回忆</view>
 				</view>
 			</view>
-			<!-- <map style="width: 100%; height: 300px;" :latitude="latitude" :longitude="longitude"></map> -->
-
-
-
-			<!--  列表标题-->
-			<view class="mc-bg-white p15 mt10 listFont" v-if="storeList[0]">{{!storeList[0].lastBrowseTime?'附近':'最近使用'}}</view>
-			<view class="uni-list">
-				<view class="shopBox" v-for="(item,index) in storeList" :key="index" @click="">
-					<image class="shopImage" lazy-load :src="item.shopsHead"></image>
-					<view class="shopInfo">
-						<text class="mc-f16">{{item.shopsName}}\n</text>
-						<text class="mc-f12 shopType">{{item.shopsType}}\n</text>
-						<text class="mc-f12 addr">{{item.shopsAddress}}</text>
+			<!--  预约服务按钮 -->
+			<!-- 			<picker
+				class="reserve"
+				mode="multiSelector"
+				@change="bindMultiPickerChange"
+				@columnchange="bindMultiPickerColumnChange"
+				:value="multiIndex"
+				@cancel=""
+				:range="dateList"
+				@click="next"
+			>
+				预约服务
+			</picker> -->
+			<button class="reserve" @click="next">预约服务</button>
+			<!-- <view @click="yuyue"></view> -->
+			<!--  文字轮播 -->
+			<view>
+				<swiper class="tipList" :autoplay="autoplay" :vertical="true" :circular="true" :interval="interval" :duration="500">
+					<block v-for="(item, index) in fontList" :key="index">
+						<swiper-item class="">
+							<image class="tipImg" src="../../static/index/jingao.png"></image>
+							<text>香港法规</text>
+							<text>{{ item }}</text>
+						</swiper-item>
+					</block>
+				</swiper>
+			</view>
+			<!--  送别故事 -->
+			<view class="story">
+				<image src="../../static/index/gushi.png" class="gushi"></image>
+				<text class="fontSmall">送别故事</text>
+				<!-- 				<view v-for="(item,index) in storyList" :key="index" class="storyList">
+					<view class="stroryBox">
+						<view class="">
+							<view class="storyTitle"> 乐乐的这些年是怎么爱我的细节</view>
+							<text class="watchNum">698</text>
+							<text class="storyTime">2019-07-18</text>
+						</view>
+						<image class="storyPhoto" src="../../static/index/huiyi.png"></image>
 					</view>
-					<view>
-						<text class="mc-f12 shop-distance">{{item.distanceStr}}</text>
+				</view> -->
+				<view class="stroryBox">
+					<view class="">
+						<view class="storyTitle">乐乐的这些年是怎么爱我的细节</view>
+						<text class="watchNum">698</text>
+						<text class="storyTime">2019-07-18</text>
 					</view>
+					<image class="storyPhoto" src="../../static/index/huiyi.png"></image>
+				</view>
+								<view class="stroryBox">
+					<view class="">
+						<view class="storyTitle">谢谢你的陪伴</view>
+						<text class="watchNum">698</text>
+						<text class="storyTime">2019-07-18</text>
+					</view>
+					<image class="storyPhoto" src="../../static/index/huiyi.png"></image>
 				</view>
 			</view>
-			<uni-load-more :status="status"></uni-load-more>
+
+			<!-- <button class="test" @click="totest">测试</button> -->
+
+			<!-- 弹出层部分 -->
+			<!--  选择服务时间 -->
+			<uni-popup ref="time" type="bottom" class="selectTimeBox">
+				<view class="titBox top39">
+					<text class="petTit" style="margin-left: 20upx;">服务时间</text>
+					<text class="ccPet" @click="ccTime">取消</text>
+				</view>
+				<view class="dayBox" style="width: 100%;display: flex; height: 420upx;">
+					<view class="dateBox">
+						<view v-for="(item, index) in dateList[0]" class="hover">{{ item }}</view>
+					</view>
+					<picker-view @change="bindTimePickerChange" :value="timeValue" class="pickH">
+						<picker-view-column class="">
+							<view class="timeSelect" v-for="(item2, index) in dateList[1]" :key="index">{{ item2 }}</view>
+						</picker-view-column>
+					</picker-view>
+				</view>
+
+				<view class="nextStep" @click="nextStep" v-if="nextTime">下一步</view>
+			</uni-popup>
+
+			<!--  填写宠物信息弹窗 -->
+			<uni-popup ref="pet" type="bottom" class="petBox">
+				<view class="content">
+					<view class="titBox">
+						<text class="petTit">宠物信息填写</text>
+						<text @click="ccPet" class="ccPet">取消</text>
+					</view>
+					<view class="">
+						<image src="../../static/mine/chongwuming.png" mode="aspectFit" class="icon"></image>
+						<input type="text" value="" placeholder="填写宠物昵称" class="input1" />
+					</view>
+
+					<view class="petPhoto">
+						<image src="../../static/mine/xiangce.png" mode="aspectFit" class="icon"></image>
+						<text class="petPN">上传宠物照片</text>
+						<!--  上传图片 -->
+						<view class="petImgBox">
+							<mc-image-upload class="testImg" :limit="6"></mc-image-upload>
+
+							<view class="photoTip">上传宠物照片可以更好为您服务，包括照片打印，其他物品图像制作等。</view>
+						</view>
+
+						<!-- 宠物重量预估 -->
+						<view class="kg">
+							<image src="../../static/mine/chengzhong.png" mode="aspectFit" class="icon"></image>
+							<text class="petPN">预估宠物重量</text>
+							<view class="">
+								<input type="number" maxlength="5" class="kgNum" />
+								<text class="kgUnit">公斤</text>
+							</view>
+						</view>
+						<button type="primary" class="petNext" @click="petNext">下一步</button>
+					</view>
+				</view>
+			</uni-popup>
+
+			<!--  填写宠物主信息弹窗 -->
+			<uni-popup ref="petUser" type="bottom" class="petUserBox">
+				<view class="content">
+					<view class="titBox">
+						<text class="petTit">主人信息填写</text>
+						<text @click="ccUser" class="ccPet">取消</text>
+					</view>
+					<view class="">
+						<image src="../../static/mine/zhurenxingming.png" mode="aspectFit" class="icon"></image>
+						<input placeholder="填写饲主姓名" class="input1" v-model="userName" style="margin-left: 0;" />
+					</view>
+					<view class="" open-type="getPhoneNumber">
+						<image src="../../static/mine/zhurenshoujihao.png" mode="aspectFit" class="icon"></image>
+						<text class="petName">添加手机号</text>
+						<!-- <text class="clickText">{{userPhone?userPhone:'点击获取饲主手机号'}}</text> -->
+						<button class="clickText" open-type="getPhoneNumber" @bindgetphonenumber="getUserPhone">点击获取饲主手机号</button>
+						<image src="../../static/mine/rightGray.png" mode="aspectFit" class="toRight"></image>
+					</view>
+					<view class="addressBox" @click="getLocation">
+						<image src="../../static/mine/zhurenweizhi.png" mode="aspectFit" class="icon"></image>
+						<text class="petName">添加地址</text>
+						<text class="clickText text2">{{ userLocation ? userLocation : '点击获取位置' }}</text>
+						<image src="../../static/mine/rightGray.png" mode="aspectFit" class="toRight"></image>
+					</view>
+					<button class="petNext" @click="sureCommit">确认</button>
+				</view>
+			</uni-popup>
 		</view>
-		<view class="container-loading" v-else>
-			<image src="../../static/loading.gif"></image>
-		</view>
+		<view class="container-loading" v-else><image src="../../static/loading.gif"></image></view>
 	</view>
 </template>
 
 <script>
-	let _self;
-	let gData = {};
-	import Vue from 'vue'
-	import {
-		mapActions,
-	} from 'vuex'
-	import uniLoadMore from '../../components/uni-load-more/uni-load-more.vue';
-	export default {
-		data() {
-			return {
-				isok: true,
-				city: '',
-				storeList: [],
-				total: 0,
-				status: "more",
-				provider: '',
-				latitude: 39.909,
-				longitude: 116.39742,
-			}
-		},
-		onLoad() {
-			_self = this;
-			// 初始化页面 
-			this.initPage();
-			uni.getProvider({
-				service: 'oauth', //登录
-				success: function(res) {
-					_self.provider = res.provider;
-					console.log(res.provider)
-					uni.login({
-						provider: res.provider,
-						success: function(loginRes) {
-							console.log(JSON.stringify(loginRes));
-						}
-					});
+let _self;
+import { mapActions, mapMutations } from 'vuex';
+import uniPopup from '../../components/uni-popup/uni-popup.vue';
+import mcImageUpload from '../../components/mc-image-upload/mc-image-upload.vue';
+export default {
+	data() {
+		return {
+			isok: true,
+			provider: '',
+			indicatorDots: false, // 是否显示面板指示点
+			autoplay: true, // 是否自动切换
+			circular: true, // 是否采用衔接滑动
+			current: 0, // 当前所在页面的 index
+			interval: 5000, // 自动切换时间间隔
+			duration: 1000, // 滑动动画时长
+			fontDirection: 'vertical', //横向horizontal
+			nextTime: false,
+			userName: '',
+			userPhone: '',
+			userLocation: '',
+			timeValue: '',
+			// value: [9999, 1, 1],
+			//轮播图图片数据
+			bannerList1: [
+				{
+					img: 'http://image.qipinke.com/banner/banner180912.png',
+					navType: 'navigateTo',
+					jumpPath: '{ "url": "/pages/family/flow/flow" }'
+				},
+				{
+					img: 'http://image.qipinke.com/banner/banner_shs_20181030.png',
+					navType: 'navigateToMiniProgram',
+					navObj: '{ "appId": "2017082808428283","path": "pages/home/home" }'
+				},
+				{
+					img: 'http://image.qipinke.com/banner/banner180920.png',
+					navType: 'navigateToMiniProgram',
+					navObj: '{ "appId": "2018122562686742","path":"pages/index/index?originAppId=2017090608580011&newUserTemplate=20190104000000101476" }'
+				}
+			],
+			fontList: ['1', '2', '3', '4', '5', '6'],
+			dateList: [
+				['今天', '明天', '后天'],
+				[
+					'08:00~09:00',
+					'09:00~10:00',
+					'10:00~11:00',
+					'11:00~12:00',
+					'12:00~13:00',
+					'13:00~14:00',
+					'14:00~15:00',
+					'15:00~16:00',
+					'16:00~17:00',
+					'17:00~18:00',
+					'18:00~19:00',
+					'19:00~20:00',
+					'20:00~21:00',
+					'21:00~22:00'
+				]
+			],
+			multiIndex: [0, 0, 0]
+		};
+	},
 
+	onLoad() {
+		_self = this;
+		_self.getSite();
+		let user = _self.$api.getUserBaseInfo();
+		console.log(user);
+	},
+	onShow() {},
+	// 关闭页面
+	onUnload() {},
+	// 下拉刷新页面 （全局）
+	onPullDownRefresh() {},
+
+	//上拉加载 (查询新的列表数据添加到数组里)
+	onReachBottom() {},
+
+	components: {
+		uniPopup,
+		mcImageUpload
+	},
+	methods: {
+		// 获取当前城市 登录
+		// ...mapActions(["getCity", "doLogin"]),
+		...mapMutations(['setUserInfo']),
+		getSite() {
+			uni.getLocation({
+				success: e => {
+					console.log(e);
 				}
 			});
 		},
-		onShow() {
-			_self.sub()
-			_self.login()
+		totest() {
+			uni.navigateTo({
+				url: '../index1/index1'
+			});
 		},
-		// 关闭页面
-		onUnload() {
-			gData = {};
+		next() {
+			_self.nextTime = true;
+			this.$refs.time.open();
 		},
-		// 下拉刷新页面 （全局）
-		onPullDownRefresh() {
-			this.initPage()
+		bindTimePickerChange: function(e) {
+			console.log('picker发送选择改变，携带值为', e.detail.value);
+			_self.timeValue = e.detail.value;
 		},
-		//上拉加载 (查询新的列表数据添加到数组里)
-		onReachBottom() {
-			this.loadList()
+
+		bindMultiPickerColumnChange: function(e) {
+			console.log('修改的列为', e.detail.column, '，值为', e.detail.value);
+			// 知道修改的列以后，就可以通过修改multiIndex中对应元素的值，然后再修改multiArray
 		},
-		components: {
-			uniLoadMore
+		nextStep() {
+			_self.$refs.pet.open();
 		},
-		methods: {
-			// 获取当前城市 登录
-			...mapActions(["getCity", "doLogin"]),
-			//  初始化页面
-			initPage() {
-				this.getCity({
-					success: (city, location) => {
-						_self.doLogin({
-							loginType: "0",
-							success: userInfo => {
-								gData.latPoint = location && location.latitude ? location.latitude : null
-								gData.lngPoint = location && location.longitude ? location.longitude : null
-								gData.adcode = city.adcode
-								gData.userInfo = userInfo
-								_self.city = city.city
-								_self.initList(); //初始化（清空上一次的数据）再加载列表
-
-							}
-						})
-					}
-				})
-
-			},
-			// 初始化宠物店列表
-			initList() {
-				gData.storePage = 0;
-				this.storeList = [];
-				this.total = 0;
-				this.status = "more";
-				this.loadList();
-			},
-			// 加载宠物店列表
-			loadList() {
-				if (this.status != "noMore") {
-					const shopsLng = this.lngPoint;
-					const shopsLat = this.latPoint;
-					const shopsCity = this.city;
-					const page = gData.storePage + 1;
-					this.status = "loading";
-					uni.showNavigationBarLoading();
-					this.$api.queryShopsList({
-						page,
-						pageSize: 8,
-						shopsLng,
-						shopsLat,
-						shopsCity,
-					}).then((res) => {
-						const data = res.data;
-						console.log(data)
-						const addList = (data.results || []).map(item => {
-							const shopsAddress = item.shopsAddress ? item.shopsAddress.split(':')[1] : null;
-							const distanceStr = item.distanceStr ? item.distanceStr.replace('m', '米').replace('k', '千') : ''; // 路程替换
-							return {
-								shopsId: item.shopsId,
-								shopsName: item.shopsName,
-								shopsHead: item.shopsHead,
-								shopsType: item.shopsType,
-								distanceStr: distanceStr,
-								shopsAddress: shopsAddress,
-								lastBrowseTime: item.lastBrowseTime,
-							}
-						})
-						_self.storeList = _self.storeList.concat(addList);
-						gData.storePage = data.page;
-						_self.status = data.noMore ? "noMore" : "more";
-						_self.total = data.total;
-						_self.isok = true;
-						// console.log(this.$data)
-						uni.hideNavigationBarLoading();
-						uni.stopPullDownRefresh(); //得到数据后停止下拉刷新
-					}).catch((err) => {
-						_self.status = "more";
-						console.log('request fail', err);
-					});
-				}
-			},
-			chooseCity() {
-				// uni.getLocation({
-				// 	success: function(res) {
-				// 		console.log('位置名称：' + res.name);
-				// 		console.log('详细地址：' + res.address);
-				// 		console.log('纬度：' + res.latitude);
-				// 		console.log('经度：' + res.longitude);
-				// 		if (res) {
-				// 			uni.openLocation({
-				// 				longitude: '121.549697',
-				// 				latitude: '31.227250',
-				// 				name: '支付宝',
-				// 				address: '杨高路地铁站',
-				// 				success: (data) => {
-				// 					console.log(data)
-				// 				}
-				// 			})
-				// 		}
-				// 	}
-				// });
-				// uni.openLocation({
-				// 	longitude: '121.549697',
-				// 	latitude: '31.227250',
-				// 	name: '支付宝',
-				// 	address: '杨高路地铁站',
-				// 	success: (data) => {
-				// 		console.log(data)
-				// 	}
-				// })
-				uni.chooseLocation({
-					success: function(res) {
-						console.log('位置名称：' + res.name);
-						console.log('详细地址：' + res.address);
-						console.log('纬度：' + res.latitude);
-						console.log('经度：' + res.longitude);
-						let name = res.name.toString()
-						let address = res.address.toString()
-						if (res) {
-							uni.openLocation({
-								latitude: res.latitude,
-								longitude: res.longitude,
-								name: name,
-								address: address,
-								success: (data) => {
-									console.log(data)
-								}
-							})
-						}
-					}
-				});
-
-
-			},
-			sub() {
-				//  配置百度页面基础配置
-				//#ifdef MP-BAIDU
-				swan.setPageInfo({
-					title: '',
-					keywords: '',
-					description: '',
-					articleTitle: '',
-					releaseDate: '2019-07-13 15:44:00',
-					image: [
-						'/static/banner.png',
-						'/static/loading.gif'
-					],
-					success: function() {
-						console.log('setPageInfo success');
-					},
-					fail: function(err) {
-						console.log('setPageInfo fail', err);
-					}
-				})
-				//#endif
-
-			},
-			login() {
-				uni.login({
-					success: (e) => {
-						console.log(e)
-						if (e) {
-							uni.getUserInfo({
-								success: (e) => {
-									console.log(e)
-								}
-							})
-						}
-					}
-				})
-				//#ifndef MP-ALIPAY
-				uni.checkSession({
-					success: (e) => {
-						console.log('会话', e)
-					}
-				})
-				//#endif
-
-				// uni.getLocation({
-				// 	type: 'gcj02', //返回可以用于uni.openLocation的经纬度
-				// 	success: function(res) {
-				// 		const latitude = res.latitude;
-				// 		const longitude = res.longitude;
-				// 		console.log(res)
-				// 		uni.openLocation({
-				// 			latitude: 113.910789,
-				// 			longitude:22.517763,
-				// 			success: function(e) {
-				// 				console.log('success', e);
-				// 			}
-				// 		});
-				// 	}
-				// });
-
-			}
-
-
+		ccPet() {
+			_self.$refs.pet.close();
+		},
+		//  填写宠物主信息
+		petNext() {
+			_self.$refs.petUser.open();
+		},
+		ccUser() {
+			_self.$refs.petUser.close();
+		},
+		ccTime() {
+			_self.$refs.time.close();
+			// uni.showTabBar({})
+		},
+		getLocation() {
+			_self.$api.chooseTheLoaction();
+		},
+		getUserPhone(e) {
+			uni.showToast({
+				title: e.detail.errMsg
+			});
+			console.log(e.detail.errMsg);
+			console.log(e.detail.iv);
+			console.log(e.detail.encryptedData);
+		},
+		sureCommit() {
+			//  服务商列表页面
+			uni.navigateTo({
+				url: '../shopCenter/sevicersList/sevicersList'
+			});
 		}
-
-
-
 	}
+};
 </script>
 
+<style lang="less">
+.page {
+	background: white;
+}
+.content {
+	padding: 40upx 20upx;
+}
 
-<style>
-	/* 列表 */
-	.uni-list:after,
-	.uni-list:before {
-		height: 0;
+.addressBox {
+	margin-bottom: 200upx;
+	margin-top: -25upx;
+	.text2 {
+		margin-left: 32upx;
 	}
+}
+.petUserBox {
+}
+.top39 {
+	margin-top: 39upx;
+	line-height: 120upx;
+}
 
-	.addr {
-		color: #BBBBBB;
-	}
+.input1 {
+	width: 400upx;
+	height: 90upx;
+	background-color: rgba(255, 255, 255, 0);
+	color: rgba(51, 51, 51, 1);
+	font-size: 28upx;
+	text-align: left;
+	font-family: Microsoft Yahei;
+	border: 2upx solid rgba(255, 255, 255, 0);
+}
+.bannerBox image {
+	width: 100%;
+}
+.petNext {
+	width: 100%;
+	height: 98upx;
+	line-height: 98upx;
+	background-color: rgba(168, 216, 185, 1);
+	color: rgba(36, 147, 110, 1);
+	font-size: 28upx;
+	text-align: center;
+	font-family: Arial;
+	border: 2upx solid rgba(255, 255, 255, 0);
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+.petPN {
+	margin-left: 15upx;
+}
+.toRight {
+	width: 35upx;
+	height: 35upx;
+	position: absolute;
+	right: 30upx;
+	vertical-align: middle;
+	margin-top: 25upx;
+	display: inline-block;
+}
 
-	.shopType {
-		color: #848484;
-	}
+.clickText {
+	// margin-left: 78upx;
+	width: 315upx;
+	height: 40upx;
+	line-height: 40upx;
+	color: rgba(153, 153, 153, 1);
+	font-size: 28upx;
+	// text-align: center;
+	font-family: PingFangSC-regular;
+	display: inline-block;
+	vertical-align: middle;
+}
 
-	.content {
-		text-align: center;
-		height: 400upx;
-	}
+.icon {
+	width: 40upx;
+	height: 40px;
+	vertical-align: middle;
+}
+.petName {
+	width: 230upx;
+	height: 90upx;
+	background-color: rgba(255, 255, 255, 0);
+	color: rgba(51, 51, 51, 1);
+	font-size: 28upx;
+	text-align: left;
+	font-family: Microsoft Yahei;
+	border: 2upx solid rgba(255, 255, 255, 0);
+	display: inline-block;
+	margin-left: 20upx;
+}
+.timeSelect {
+width:390upx;
+height: 88upx;
+line-height: 88upx;
+// background-color: rgba(255, 255, 255, 1);
+color: #101010;
+font-size: 28upx;
+text-align: center;
+font-family: Arial;
+// border: 2upx solid rgba(255, 255, 255, 0);
 
-	.logo {
-		height: 200upx;
+}
+.timeSelect:hover{
+		background-color: rgba(234, 234, 234, 1);
+
+}
+
+.titBox {
+	width: 100%;
+	height: 120upx;
+	.petTit {
 		width: 200upx;
-		margin-top: 200upx;
-	}
-
-	.title {
-		font-size: 36upx;
-		color: #8f8f94;
-	}
-
-	.listFont {
+		height: 46upx;
+		color: rgba(16, 16, 16, 1);
 		font-size: 32upx;
-		color: black;
-	}
-
-	.shop-distance {
+		text-align: left;
 		display: inline-block;
-		color: #888888;
-		position: absolute;
-		right: 30upx;
 	}
-
-	.shopBox {
-		background-color: white;
-		padding: 30upx;
-		width: 100%;
-		display: flex;
-		box-sizing: border-box;
+	.ccPet {
+		margin-left: 456upx;
+		width: 48upx;
+		height: 34upx;
+		color: rgba(153, 153, 153, 1);
+		font-size: 24upx;
+		text-align: left;
+		display: inline-block;
 	}
+}
 
-	.shopImage {
-		width: 150upx;
-		height: 140upx;
+swiper-item {
+	view {
+		display: block;
+	}
+}
+
+.kg {
+	margin-top: 20upx;
+	margin-bottom: 200upx;
+	.kgNum {
+		margin-left: 50upx;
+		width: 180upx;
+		height: 88upx;
+		line-height: 40upx;
 		border-radius: 10upx;
-		overflow: hidden;
+		// text-align: ;
+
+		text-indent: 30upx;
+		border: 2upx solid rgba(234, 234, 234, 1);
+		display: inline-block;
+	}
+	.kgUnit {
+		position: relative;
+		left: -72upx;
+		width: 58upx;
+		height: 32upx;
+		color: rgba(16, 16, 16, 1);
+		font-size: 28upx;
+		text-align: left;
+		font-family: Arial-regular;
+		display: inline-block;
+	}
+}
+
+.petBox {
+	.petNext {
+		width: 100%;
+		height: 98upx;
+		line-height: 98upx;
+		background-color: rgba(168, 216, 185, 1);
+		color: rgba(36, 147, 110, 1);
+		font-size: 28upx;
+		text-align: center;
+		font-family: Arial;
+		border: 2upx solid rgba(255, 255, 255, 0);
+		position: absolute;
+		bottom: 0;
+		left: 0;
 	}
 
-	.shopInfo {
-		margin-left: 30upx;
+	.petPN {
+		margin-left: 10upx;
+		height: 40upx;
+		color: rgba(51, 51, 51, 1);
+		font-size: 28upx;
+		text-align: left;
 	}
+}
+.bannerBox {
+	/* height: ; */
+}
+.photoTip {
+	margin-left: 42upx;
+	width: 620upx;
+	height: 58upx;
+	color: rgba(204, 204, 204, 1);
+	font-size: 24upx;
+	text-align: left;
+	font-family: PingFangSC-regular;
+}
+.timeHover {
+	background-color: rgba(234, 234, 234, 1);
+	border: 2upx solid rgba(255, 255, 255, 0);
+	flex: 1;
+	text-align: center;
+}
+.nextStep {
+	width: 100%;
+	height: 98upx;
+	line-height: 98upx;
+	background-color: rgba(168, 216, 185, 1);
+	color: rgba(36, 147, 110, 1);
+	font-size: 28upx;
+	text-align: center;
+	font-family: Arial;
+	border: 2upx solid rgba(255, 255, 255, 0);
+	position: absolute;
+	bottom: 0;
+	z-index: 10000;
+}
+.banner1 {
+	width: 100%;
+	height: 328upx;
+	.Img {
+		width: 100%;
+		height: 328upx;
+	}
+}
+
+.story {
+	margin-bottom: 50upx;
+}
+
+.banner2 {
+	width: 710upx;
+	height: 268upx;
+	margin-left: 20upx;
+	z-index: 20;
+	position: absolute;
+	top: 250upx;
+	.Img {
+		width: 100%;
+		height: 268upx;
+	}
+}
+
+.stroryBox {
+	display: flex;
+}
+
+.storyList {
+	margin-left: 20upx;
+	width: 710upx;
+	height: 188upx;
+	line-height: 40upx;
+	border-radius: 10upx;
+	text-align: center;
+	border: 2upx solid rgba(255, 255, 255, 0);
+}
+
+.fontSmall {
+	color: rgba(16, 16, 16, 1);
+	font-size: 12px;
+	text-align: left;
+	font-family: PingFangSC-regular;
+}
+
+.gushi {
+	margin-left: 44upx;
+	width: 32upx;
+	height: 34upx;
+	margin-right: 14upx;
+	vertical-align: middle;
+}
+
+.tipList {
+	width: 610upx;
+	height: 102upx;
+	color: rgba(16, 16, 16, 1);
+	font-size: 24upx;
+	text-align: left;
+	font-family: PingFangSC-regular;
+	line-height: 68upx;
+	margin-left: 44upx;
+	margin-top: 10upx;
+}
+
+.tipImg {
+	width: 32upx;
+	height: 34upx;
+	vertical-align: middle;
+	margin-right: 14upx;
+}
+
+.sw2 {
+	border-radius: 8upx;
+}
+
+.test {
+	position: fixed;
+	bottom: 0;
+	width: 300upx;
+}
+
+.flowBox {
+	display: flex;
+	width: 710upx;
+	margin-left: 20upx;
+	text-align: center;
+	margin-top: 228upx;
+}
+
+.flowBox image {
+	width: 50upx;
+	height: 50upx;
+}
+
+.flowBox image + view {
+	font-size: 24upx;
+	color: #666666;
+}
+
+.flowBox > view {
+	flex: 1;
+}
+
+.reserve {
+	width: 710upx;
+	height: 98upx;
+	line-height: 98upx;
+	border-radius: 10upx;
+	background-color: rgba(168, 216, 185, 1);
+	color: rgba(36, 147, 110, 1);
+	font-size: 32upx;
+	text-align: center;
+	box-shadow: 0upx 0upx 7upx 0upx rgba(255, 255, 255, 0);
+	font-family: Arial;
+	border: 2upx solid rgba(255, 255, 255, 0);
+	margin-left: 15upx;
+	margin-top: 43upx;
+}
+
+/*  故事列表 */
+.storyTitle {
+	margin-left: 46upx;
+	/* top: 544px; */
+	width: 338upx;
+	height: 80upx;
+	color: rgba(16, 16, 16, 1);
+	font-size: 28upx;
+	text-align: left;
+	font-family: PingFangSC-regular;
+	margin-bottom: 46upx;
+	margin-top: 20upx;
+}
+
+.watchNum {
+	margin-left: 46upx;
+	width: 95upx;
+	height: 34upx;
+	color: rgba(16, 16, 16, 1);
+	font-size: 24upx;
+	text-align: left;
+	font-family: PingFangSC-regular;
+	background: url(../../static/index/eye.png) no-repeat;
+	background-size: 24upx;
+	background-position-y: 9upx;
+	padding-left: 38upx;
+}
+
+.storyTime {
+	margin-left: 119upx;
+	width: 146upx;
+	height: 34upx;
+	color: rgba(16, 16, 16, 1);
+	font-size: 24upx;
+	text-align: left;
+	font-family: PingFangSC-regular;
+}
+
+.storyPhoto {
+	margin-left: 46upx;
+	width: 272upx;
+	height: 170upx;
+	border-radius: 10upx;
+	vertical-align: middle;
+	margin-top: 20upx;
+}
+
+.pickH {
+	width: 350upx;
+	height: 409upx;
+	overflow: hidden;
+}
+.selectTimeBox {
+	width: 100%;
+	height: 600upx;
+}
+
+.titBox {
+	width: 100%;
+	height: 120upx;
+}
+
+.tit {
+	padding: 20upx;
+	width: 200upx;
+	height: 42upx;
+	color: rgba(51, 51, 51, 1);
+	font-size: 32upx;
+	text-align: left;
+	margin-top: 20upx;
+	display: inline-block;
+}
+.cancel {
+	margin-left: 430upx;
+	margin-top: 20upx;
+	width: 48upx;
+	height: 32upx;
+	color: rgba(153, 153, 153, 1);
+	font-size: 24upx;
+	text-align: left;
+	display: inline-block;
+}
+.dateBox {
+	width: 350upx;
+	height: 409upx;
+	line-height: 98upx;
+	color: rgba(16, 16, 16, 1);
+	font-size: 28upx;
+	text-align: center;
+	font-family: Arial;
+	border: 2upx solid rgba(255, 255, 255, 0);
+}
+
+.timeBox {
+	width: 350upx;
+	height: 270upx;
+	color: rgba(16, 16, 16, 1);
+	font-size: 28upx;
+	text-align: center;
+	font-family: Arial;
+	border: 2upx solid rgba(255, 255, 255, 0);
+}
+.time2 {
+	height: 98upx;
+	line-height: 98upx;
+}
+
+.hover:hover {
+	background-color: rgba(234, 234, 234, 1);
+}
+
+.date {
+	transition-property: false;
+}
+.hover {
+	width: 350upx;
+	height: 98upx;
+	line-height: 98upx;
+	background-color: rgba(255, 255, 255, 1);
+	color: rgba(16, 16, 16, 1);
+	font-size: 28upx;
+	text-align: center;
+	font-family: Arial;
+	border: 2upx solid rgba(255, 255, 255, 0);
+}
 </style>

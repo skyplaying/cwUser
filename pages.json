@@ -1,68 +1,172 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		
+		
+		{
+			"path": "pages/shopCenter/shoppingDetails/shoppingDetails",
+			"style": {
+				"navigationBarTitleText": "商品详情"
+			}
+		},
+
 		{
 			"path": "pages/index/index",
+			"style": {}
+		},
+
+
+
+		{
+			"path": "pages/shopCenter/cancelOrder/cancelOrder",
+			"style": {
+				"navigationBarTitleText": ""
+			}
+		},
+
+
+		{
+			"path": "pages/order/payComplete/payComplete",
 			"style": {
 				"navigationBarTitleText": "宠善堂"
 			}
+		},
+		{
+			"path": "pages/order/petInfo/petInfo",
+			"style": {}
+		},
+
+		{
+			"path": "pages/shopCenter/sevicersList/sevicersList",
+			"style": {
+				"navigationBarTitleText": "服务商"
+			}
+		},
+
+
+
+		{
+			"path": "pages/shopCenter/palceOrder/palceOrder",
+			"style": {
+				"navigationBarTitleText": "商家名"
+			}
+		},
+
+
+		{
+			"path": "pages/shopCenter/shopPage/shopPage",
+			"style": {}
+		},
+
+		{
+			"path": "pages/test/test",
+			"style": {}
+		},
+		{
+			"path": "pages/order/getService/getService",
+			"style": {
+				"navigationBarTitleText": "预约服务"
+			}
+		},
+
+		{
+			"path": "pages/order/evaluate/evaluate",
+			"style": {
+				"navigationBarTitleText": "评价"
+				// "disableScroll": true  
+			}
+		},
+		{
+			"path": "pages/order/oderDetail/oderDetail",
+			"style": {
+				"navigationBarTitleText": "订单信息"
+			}
+		},
+		{
+			"path": "pages/order/myOrder/myOrder",
+			"style": {
+				"navigationBarTitleText": "宠善堂"
+			}
+		},
+		{
+			"path": "pages/mine/my/my",
+			"style": {}
+		},
+		{
+			"path": "pages/mine/withdraw/withdraw",
+			"style": {
+				"navigationBarTitleText": "在线客服"
+			}
+		},
+		{
+			"path": "pages/mine/uniQuestion/uniQuestion",
+			"style": {
+				"navigationBarTitleText": "常见问题"
+			}
+		},
+		{
+			"path": "pages/mine/myAddress/myAddress",
+			"style": {
+				"navigationBarTitleText": "我的地址"
+			}
+		},
+		{
+			"path": "pages/userAdvise/userAdvise",
+			"style": {
+				"navigationBarTitleText": "用户评价"
+			}
+		}, {
+			"path": "pages/login/login",
+			"style": {
+				"navigationBarTitleText": "登录"
+			}
+		}, {
+			"path": "pages/register/register",
+			"style": {}
+		}, {
+			"path": "pages/shopCenter/shopCenter/shopCenter",
+			"style": {}
+		}, {
+			"path": "pages/order/orderCenter/orderCenter",
+			"style": {}
+		}, {
+			"path": "pages/mine/myShop/myShop",
+			"style": {}
+		},
+		{
+			"path": "pages/mine/Stores/Stores",
+			"style": {}
+		}, {
+			"path": "pages/mine/updateRecord/updateRecord",
+			"style": {}
+		}, {
+			"path": "pages/mine/transOrder/transOrder",
+			"style": {}
+		}, {
+			"path": "pages/indexModule/getMoneyCode/getMoneyCode",
+			"style": {}
+		}, {
+			"path": "pages/indexModule/goodsManage/goodsManage",
+			"style": {}
+		}, {
+			"path": "pages/indexModule/proxyGoods/proxyGoods",
+			"style": {}
+		}, {
+			"path": "pages/indexModule/staffManage/staffManage",
+			"style": {}
+		}, {
+			"path": "pages/indexModule/switchShop/switchShop",
+			"style": {}
+		}, {
+			"path": "pages/index1/index1",
+			"style": {}
 		}
-        ,{
-            "path" : "pages/userAdvise/userAdvise",
-            "style" : {
-				"navigationBarTitleText":"用户评价"
-			}
-        }
-        ,{
-            "path" : "pages/login/login",
-            "style" : {
-				"navigationBarTitleText":"登录"
-			}
-        }
-        ,{
-            "path" : "pages/register/register",
-            "style" : {}
-        }
-        ,{
-            "path" : "pages/shopCenter/addShopInfo/addShopInfo",
-            "style" : {}
-        }
-        ,{
-            "path" : "pages/shopCenter/shopCenter/shopCenter",
-            "style" : {}
-        }
-        ,{
-            "path" : "pages/shopCenter/shoperInfo/shoperInfo",
-            "style" : {}
-        }
-        ,{
-            "path" : "pages/order/orderCenter/orderCenter",
-            "style" : {}
-        }
-        ,{
-            "path" : "pages/order/oderDetail/oderDetail",
-            "style" : {}
-        }
-        ,{
-            "path" : "pages/mine/myShop/myShop",
-            "style" : {}
-        }
-        ,{
-            "path" : "pages/mine/withdraw/withdraw",
-            "style" : {}
-        }
-        ,{
-            "path" : "pages/mine/Stores/Stores",
-            "style" : {}
-        }
-        ,{
-            "path" : "pages/mine/updateRecord/updateRecord",
-            "style" : {}
-        }
-        ,{
-            "path" : "pages/mine/transOrder/transOrder",
-            "style" : {}
-        }
-    ],
+
+		, {
+			"path": "pages/pet/petType/petType",
+			"style": {}
+		}
+
+	],
 	"permission": {
 		"scope.userLocation": {
 			"desc": "你的位置信息将用于小程序位置接口的效果展示"
@@ -72,28 +176,28 @@
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "宠善堂",
-		"navigationBarBackgroundColor": "skyblue",
+		"navigationBarBackgroundColor": "white",
 		"backgroundColor": "white"
+	},
+	// 底部状态栏
+	"tabBar": {
+		"color": "#A8D8B9",
+		"selectedColor": "#A8D8B9",
+		"borderStyle": "white",
+		"backgroundColor": "#ffffff",
+		"list": [{
+			"pagePath": "pages/index/index", //跳转页面
+			"iconPath": "static/index/wushou.png", //默认图片
+			"selectedIconPath": "static/index/home.png", //选择 选项的时候展示
+			"text": "首页" //文字介绍
+		}, {
+			"pagePath": "pages/mine/my/my",
+			"iconPath": "static/index/wuwo.png",
+			"selectedIconPath": "static/index/wo.png",
+			"text": "我的"
+		}]
 	}
 
-	// 底部状态栏
-	// "tabBar": {
-	//        "color": "#7A7E83",
-	//        "selectedColor": "#3cc51f",
-	//        "borderStyle": "black",
-	//        "backgroundColor": "#ffffff",
-	//        "list": [{
-	//            "pagePath": "pages/component/index",
-	//            "iconPath": "static/image/icon_component.png",
-	//            "selectedIconPath": "static/image/icon_component_HL.png",
-	//            "text": "组件"
-	//        }, {
-	//            "pagePath": "pages/API/index", //跳转页面
-	//            "iconPath": "static/image/icon_API.png",  //默认图片
-	//            "selectedIconPath": "static/image/icon_API_HL.png", //选择 选项的时候展示
-	//            "text": "接口" //文字介绍
-	//        }]
-	// 	},
 	// "sitemapLocation": "sitemap.json"
 
 
