@@ -105,59 +105,124 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var uniPopup = function uniPopup() {return __webpack_require__.e(/*! import() | components/uni-popup/uni-popup */ "components/uni-popup/uni-popup").then(__webpack_require__.bind(null, /*! @/components/uni-popup/uni-popup.vue */ 270));};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var that;var _default =
 {
   data: function data() {
     return {
@@ -177,11 +242,47 @@ var _default =
       {
         img: 'http://image.qipinke.com/banner/banner180920.png',
         navType: 'navigateToMiniProgram',
-        navObj: '{ "appId": "2018122562686742","path":"pages/index/index?originAppId=2017090608580011&newUserTemplate=20190104000000101476" }' }] };
+        navObj: '{ "appId": "2018122562686742","path":"pages/index/index?originAppId=2017090608580011&newUserTemplate=20190104000000101476" }' },
+
+      {
+        img: 'http://image.qipinke.com/banner/banner180920.png',
+        navType: 'navigateToMiniProgram',
+        navObj: '{ "appId": "2018122562686742","path":"pages/index/index?originAppId=2017090608580011&newUserTemplate=20190104000000101476" }' },
+
+      {
+        img: 'http://image.qipinke.com/banner/banner180920.png',
+        navType: 'navigateToMiniProgram',
+        navObj: '{ "appId": "2018122562686742","path":"pages/index/index?originAppId=2017090608580011&newUserTemplate=20190104000000101476" }' },
+
+      {
+        img: 'http://image.qipinke.com/banner/banner180920.png',
+        navType: 'navigateToMiniProgram',
+        navObj: '{ "appId": "2018122562686742","path":"pages/index/index?originAppId=2017090608580011&newUserTemplate=20190104000000101476" }' }],
 
 
+      goodTypeList: [{}, {}, {}] };
 
-  } };exports.default = _default;
+  },
+  components: {
+    uniPopup: uniPopup },
+
+  onLoad: function onLoad() {
+    that = this;
+  },
+  methods: {
+    openSelectPop: function openSelectPop() {
+      that.$refs.selectBuyPop.open();
+    },
+    nowPopBuy: function nowPopBuy() {
+      that.$refs.selectBuyPop.close();
+    },
+    buyRightNow: function buyRightNow() {
+      //  跳转买单页面
+      uni.navigateTo({
+        url: '../palceOrder/palceOrder' });
+
+    } } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-alipay/dist/index.js */ 1)["default"]))
 
 /***/ }),
 

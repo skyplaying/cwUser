@@ -2,6 +2,37 @@
   background-color: #f9f9f9;
   font-family: PingFangSC-regular;
 }
+.imageUpload {
+  display: inline-block;
+  width: 124rpx;
+  height: 124rpx;
+  border-radius: 4rpx;
+  background-color: #f0f0f0;
+  text-align: center;
+  border: 2rpx solid #e5e5e5;
+  margin-left: 500rpx;
+  position: absolute;
+  right: 78rpx;
+  top: 90rpx;
+}
+.imageItem image,
+.moveImage,
+.imageCover {
+  width: 124rpx;
+  height: 124rpx;
+}
+.uploadImgBox {
+  margin-left: 32rpx;
+  width: 686rpx;
+  height: 170rpx;
+  line-height: 170rpx;
+  position: relative;
+}
+.uploadImgBox .tit2 {
+  margin-left: 25rpx;
+  margin-top: 85rpx;
+  display: inline-block;
+}
 .rateBox > view {
   vertical-align: middle;
 }
@@ -81,12 +112,12 @@
   width: 56rpx;
   height: 40rpx;
   display: block;
-  padding: 24rpx;
+  padding: 24rpx 0;
   text-align: left;
 }
 .suggestBox .richText {
-  padding: 24rpx;
-  width: 628rpx;
+  margin-top: 20rpx;
+  width: 640rpx;
   height: 134rpx;
   line-height: 40rpx;
   border-radius: 10rpx;

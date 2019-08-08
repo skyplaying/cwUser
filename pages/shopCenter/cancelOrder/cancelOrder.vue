@@ -15,7 +15,7 @@
 					</radio-group>
 				</view>
 			</view>
-			<view class="submitBtn">提交</view>
+			<view class="submitBtn" @click="submitBtn">提交</view>
 		</view>
 	</view>
 </template>
@@ -49,7 +49,20 @@ export default {
 		},
 		radioChange(e) {
 			console.log(e.detail.value);
-		}
+		},
+		submitBtn(){
+			uni.showToast({
+				title:'谢谢您的反馈',
+				duration:1500,
+				success() {
+				//  提交完成回到首页
+					uni.navigateTo({
+						url:'../../index/index'
+					})
+				}
+			})
+		
+		},
 	}
 };
 </script>

@@ -1,4 +1,4 @@
-<!-- 点击商家列表下单页面 -->
+<!-- 买单页面  根据设计顺序-->
 <template>
 	<view class="page">
 		<view class="container" v-if="isok">

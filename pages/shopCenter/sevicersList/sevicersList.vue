@@ -23,7 +23,7 @@
 				<view class="shopBox">
 					<image class="shopLogo" src="../../../static/index/huiyi.png" mode="aspectFit"></image>
 					<view class="info">
-						<text class="shopName">宠慕火化中心</text>
+						<text class="shopName" @click="get">宠慕火化中心</text>
 						<text class="distance">距离您5km</text>
 						<view class="iconBox">
 							<image src="../../../static/shop/star.png" mode="aspectFit" class="star"></image>
@@ -36,28 +36,17 @@
 						<view class="shopDes">宠慕宠物善终服务是广东周边地区最早成立，最专业，档次最高，服务条件最好的宠物火化殡葬善终服务。</view>
 						<!-- 商品展示列表 -->
 						<view class="goodsList">
-							<!-- 商品列表轮播 -->
+							<!-- 商品列表 滚动框 -->
 
-							<swiper
-								class="goodSwiper"
-								style=""
-								:indicator-dots="false"
-								:autoplay="false"
-								:circular="false"
-								:display-multiple-items="3"
-								:interval="3000"
-								:duration="2000"
-							>
-								<block>
-									<swiper-item class="goodsBox" v-for="(item, index) in bannerList1" :key="index">
-										<view @click="getIndex(index)" class="kk">
-											<image :src="item.img" mode="widthFix" class="goodImg" />
-											<view class="goodName">仙居图</view>
-											<view class="price">￥99</view>
-										</view>
-									</swiper-item>
-								</block>
-							</swiper>
+							<scroll-view class="floor-list goodSwiper" scroll-x>
+								<view class="scoll-wrapper kk">
+									<view v-for="(item, index) in bannerList1" :key="index" class="kk" @click="navToDetailPage(item)">
+										<image :src="item.img" mode="aspectFill" class="goodImg"></image>
+										<view class="goodName">仙居图</view>
+										<text class="price">￥99</text>
+									</view>
+								</view>
+							</scroll-view>
 						</view>
 					</view>
 				</view>
@@ -77,17 +66,17 @@
 						<view class="shopDes">宠慕宠物善终服务是广东周边地区最早成立，最专业，档次最高，服务条件最好的宠物火化殡葬善终服务。</view>
 						<!-- 商品展示列表 -->
 						<view class="goodsList">
-							<!-- 商品列表轮播 -->
+							<!-- 商品列表 滚动框 -->
 
-							<swiper class="" :indicator-dots="false" :autoplay="false" :circular="false" :display-multiple-items="3" :interval="1000" :duration="1000">
-								<swiper-item class="goodsBox" v-for="(item, index) in bannerList1" :key="index">
-									<view @click="getIndex(index)" class="go1" style="">
-										<image :src="item.img" mode="widthFix" class="goodImg" />
+							<scroll-view class="floor-list goodSwiper" scroll-x>
+								<view class="scoll-wrapper kk">
+									<view v-for="(item, index) in bannerList1" :key="index" class="kk" @click="navToDetailPage(item)">
+										<image :src="item.img" mode="aspectFill" class="goodImg"></image>
 										<view class="goodName">仙居图</view>
-										<view class="price">￥99</view>
+										<text class="price">￥99</text>
 									</view>
-								</swiper-item>
-							</swiper>
+								</view>
+							</scroll-view>
 						</view>
 					</view>
 				</view>
@@ -143,30 +132,47 @@ export default {
 			]
 		};
 	},
-	onLoad() {
-		
-	},
-	methods:{
-		cancelOrder(){
+	onLoad() {},
+	methods: {
+		cancelOrder() {
 			uni.showModal({
-				title:'是否取消预约',
-				success: (su) => {
-					if(su.confirm===true){
+				title: '是否取消预约',
+				success: su => {
+					if (su.confirm === true) {
 						uni.navigateTo({
-							url:'../cancelOrder/cancelOrder'
-						})
+							url: '../cancelOrder/cancelOrder'
+						});
 					}
-					console.log('sucess',su)
-				},fail(err) {
-					console.log('err',err)
+					console.log('sucess', su);
+				},
+				fail(err) {
+					console.log('err', err);
 				}
-			})
+			});
+		},
+		get(){
+			var oo=doc
 		},
 	}
 };
 </script>
 
 <style lang="less">
+.floor-list {
+	white-space: nowrap;
+	display: block;
+	// width: 650upx;
+	// margin-left: 90upx;
+}
+
+.scoll-wrapper {
+	display: flex;
+	align-items: flex-start;
+	// height: 300upx;
+	// width: 580upx;
+	// margin-top: 38upx;
+}
+
 .shopSwiperBox {
 	height: 328upx;
 	width: 100%;
@@ -320,7 +326,7 @@ export default {
 				// }
 
 				.goodSwiper {
-					height: 170upx;
+					height: 200upx;
 					width: 100%;
 				}
 
@@ -349,6 +355,7 @@ export default {
 					text-align: center;
 					font-family: Arial-regular;
 					margin-top: 12upx;
+					display: block;
 				}
 			}
 		}

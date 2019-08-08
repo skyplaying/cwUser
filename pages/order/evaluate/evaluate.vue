@@ -25,7 +25,13 @@
 			<view class=" suggestBox">
 				<text class="tit">评价</text>
 				<!-- <rich-text class="richText"></rich-text> -->
-				<textarea value="" class="richText" />
+				<textarea value="" class="richText" maxlength="-1" />
+			</view>
+
+			<!--  上传图片 -->
+			<view class=" uploadImgBox">
+				<text class="tit2">上传图片</text>
+				<image-upload :limit="3"></image-upload>
 			</view>
 
 			<button @click="" class="submit">提交评价</button>
@@ -35,15 +41,17 @@
 
 <script>
 import uniRate from '@/components/uni-rate/uni-rate.vue';
+import imageUpload from '../../../components/mc-image-upload/mc-image-upload.vue';
 
 export default {
 	data() {
 		return {
-			isok: true,
+			isok: true
 		};
 	},
 	components: {
-		uniRate
+		uniRate,
+		imageUpload
 	}
 };
 </script>
@@ -52,6 +60,38 @@ export default {
 .page {
 	background-color: #f9f9f9;
 	font-family: PingFangSC-regular;
+}
+.imageUpload {
+	display: inline-block;
+	width: 124upx;
+	height: 124upx;
+	border-radius: 4upx;
+	background-color: rgba(240, 240, 240, 1);
+	text-align: center;
+	border: 2upx solid rgba(229, 229, 229, 1);
+	margin-left: 500upx;
+	position: absolute;
+	right: 78upx;
+	top: 90upx;
+}
+.imageItem image,
+.moveImage,
+.imageCover {
+	width: 124upx;
+	height: 124upx;
+}
+
+.uploadImgBox {
+	margin-left: 32upx;
+	width: 686upx;
+	height: 170upx;
+	line-height: 170upx;
+	position: relative;
+	.tit2 {
+		margin-left: 25upx;
+		margin-top: 85upx;
+		display: inline-block;
+	}
 }
 .rateBox > view {
 	vertical-align: middle;
@@ -121,25 +161,25 @@ export default {
 	font-size: 28upx;
 	font-family: Arial;
 	border: 2upx solid rgba(255, 255, 255, 0);
-	width:686upx;
-	height:242upx;
+	width: 686upx;
+	height: 242upx;
 	.tit {
 		width: 56upx;
 		height: 40upx;
-		display:block;
-		padding: 24upx;
+		display: block;
+		padding: 24upx 0;
 		text-align: left;
 	}
 	.richText {
-		padding: 24upx;
+		margin-top: 20upx;
 		// left: 28px;
-		width: 628upx;
+		width: 640upx;
 		height: 134upx;
 		line-height: 40upx;
 		border-radius: 10upx;
 		background-color: rgba(247, 247, 247, 1);
 		border: 2px solid #efefef;
-		display:block
+		display: block;
 	}
 }
 .submit {

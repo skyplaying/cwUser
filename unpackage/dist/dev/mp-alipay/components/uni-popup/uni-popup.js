@@ -114,7 +114,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-var _default =
+
+var that = void 0;var _default =
 {
   name: 'UniPopup',
   props: {
@@ -143,30 +144,41 @@ var _default =
     return {
       ani: '',
       show: false,
-      tab: 0 };
+      mask: 0 };
 
   },
-  created: function created() {},
+  created: function created() {
+    uni.setStorageSync('maskNo', 0);
+  },
+  onLoad: function onLoad() {
+    // that=this;
+  },
   methods: {
     clear: function clear() {},
     open: function open() {var _this = this;
-      this.tab = this.tab + 1;
-      console.log(this.tab);
       this.show = true;
       this.$nextTick(function () {
         setTimeout(function () {
           _this.ani = 'uni-' + _this.type;
         }, 30);
       });
+      var mask = uni.getStorageSync('maskNo');
+      mask = mask + 1;
+      uni.setStorageSync('maskNo', mask);
       uni.hideTabBar({});
     },
-    close: function close(type) {var _this2 = this;
+    close: function close(kk) {var _this2 = this;
       if (!this.maskClick && type) return;
-      if (type == 'o') {
-        uni.showTabBar({});
-        console.log(type);
-      }
 
+      var mask = uni.getStorageSync('maskNo');
+      mask = mask - 1;
+      uni.setStorageSync('maskNo', mask);
+      console.log(mask);
+      if (mask <= 0) {
+        uni.showTabBar({});
+      } else {
+        uni.hideTabBar({});
+      }
       this.ani = '';
       this.$nextTick(function () {
         setTimeout(function () {

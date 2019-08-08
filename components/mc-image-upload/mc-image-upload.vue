@@ -350,25 +350,25 @@ export default {
 .imageUpload {
 	position: relative;
 	box-sizing: border-box;
-	/* border: 1px solid #D9D9D9; */
-	/* border-radius: 8upx; */
+	border: 1px solid #d9d9d9;
+	border-radius: 8upx;
 
-	background: url(../../static/index/imgUpload.png) no-repeat; /* 修改了下背景图 */
-	background-size: 100%;
+	/* background: url(../../static/index/imgUpload.png) no-repeat; /* 修改了下背景图 */
+	/* background-size: 100%; */
 	left: 30upx;
 }
 
-/* 	.imageUpload:before,
-	.imageUpload:after {
-		content: " ";
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		-webkit-transform: translate(-50%, -50%);
-		transform: translate(-50%, -50%);
-		background-color: #D9D9D9;
-	}
- */
+.imageUpload:before,
+.imageUpload:after {
+	content: ' ';
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	background-color: #d9d9d9;
+}
+
 .imageUpload:before {
 	width: 4upx;
 	height: 79upx;
@@ -388,7 +388,7 @@ export default {
 	position: relative;
 	left: 0;
 	bottom: 178upx;
-	width: 100%;
+	/* width: 100%; */
 	text-align: center;
 	line-height: 160upx;
 	background-color: rgba(0, 0, 0, 0.5);

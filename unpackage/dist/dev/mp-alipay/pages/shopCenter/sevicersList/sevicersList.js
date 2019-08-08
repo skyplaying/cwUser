@@ -205,17 +205,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 var _default =
 {
   data: function data() {
@@ -250,9 +239,7 @@ var _default =
 
 
   },
-  onLoad: function onLoad() {
-
-  },
+  onLoad: function onLoad() {},
   methods: {
     cancelOrder: function cancelOrder() {
       uni.showModal({
@@ -264,10 +251,14 @@ var _default =
 
           }
           console.log('sucess', su);
-        }, fail: function fail(err) {
+        },
+        fail: function fail(err) {
           console.log('err', err);
         } });
 
+    },
+    get: function get() {
+      var oo = doc;
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-alipay/dist/index.js */ 1)["default"]))
 

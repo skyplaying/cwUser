@@ -1,3 +1,17 @@
+.floor-list {
+  white-space: nowrap;
+  display: block;
+}
+.scoll-wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
 .shopSwiperBox {
   height: 328rpx;
   width: 100%;
@@ -138,7 +152,7 @@
   margin-top: 16rpx;
 }
 .content .shopBox .info .goodsList .goodSwiper {
-  height: 170rpx;
+  height: 200rpx;
   width: 100%;
 }
 .content .shopBox .info .goodsList .goodsBox {
@@ -166,5 +180,6 @@
   text-align: center;
   font-family: Arial-regular;
   margin-top: 12rpx;
+  display: block;
 }
 

@@ -1,19 +1,37 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+				{
+			"path": "pages/order/evaluate/evaluate",
+			"style": {
+				"navigationBarTitleText": "评价"
+				// "disableScroll": true  
+			}
+		},
 		
-		
+		{
+			"path": "pages/index/index",
+			"style": {}
+		},
+		{
+			"path": "pages/shopCenter/sevicersList/sevicersList",
+			"style": {
+				"navigationBarTitleText": "服务商"
+			}
+		},
+
+		{
+			"path": "pages/order/submitOrder/submitOrder",
+			"style": {
+				"navigationBarTitleText": "提交订单"
+			}
+		},
+
 		{
 			"path": "pages/shopCenter/shoppingDetails/shoppingDetails",
 			"style": {
 				"navigationBarTitleText": "商品详情"
 			}
 		},
-
-		{
-			"path": "pages/index/index",
-			"style": {}
-		},
-
 
 
 		{
@@ -34,15 +52,6 @@
 			"path": "pages/order/petInfo/petInfo",
 			"style": {}
 		},
-
-		{
-			"path": "pages/shopCenter/sevicersList/sevicersList",
-			"style": {
-				"navigationBarTitleText": "服务商"
-			}
-		},
-
-
 
 		{
 			"path": "pages/shopCenter/palceOrder/palceOrder",
@@ -68,13 +77,7 @@
 			}
 		},
 
-		{
-			"path": "pages/order/evaluate/evaluate",
-			"style": {
-				"navigationBarTitleText": "评价"
-				// "disableScroll": true  
-			}
-		},
+
 		{
 			"path": "pages/order/oderDetail/oderDetail",
 			"style": {

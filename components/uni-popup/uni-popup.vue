@@ -8,6 +8,7 @@
 </template>
 
 <script>
+let that = this;
 export default {
 	name: 'UniPopup',
 	props: {
@@ -36,30 +37,41 @@ export default {
 		return {
 			ani: '',
 			show: false,
-			tab: 0
+			mask: 0
 		};
 	},
-	created() {},
+	created() {
+		uni.setStorageSync('maskNo', 0);
+	},
+	onLoad() {
+		// that=this;
+	},
 	methods: {
 		clear() {},
 		open() {
-			this.tab = this.tab + 1;
-			console.log(this.tab);
 			this.show = true;
 			this.$nextTick(() => {
 				setTimeout(() => {
 					this.ani = 'uni-' + this.type;
 				}, 30);
 			});
+			let mask = uni.getStorageSync('maskNo');
+			mask = mask + 1;
+			uni.setStorageSync('maskNo', mask);
 			uni.hideTabBar({});
 		},
-		close(type) {
+		close(kk) {
 			if (!this.maskClick && type) return;
-			if (type == 'o') {
-				uni.showTabBar({});
-				console.log(type)
-			}
 
+			let mask = uni.getStorageSync('maskNo');
+			mask = mask - 1;
+			uni.setStorageSync('maskNo', mask);
+			console.log(mask);
+			if (mask <= 0) {
+				uni.showTabBar({});
+			} else {
+				uni.hideTabBar({});
+			}
 			this.ani = '';
 			this.$nextTick(() => {
 				setTimeout(() => {

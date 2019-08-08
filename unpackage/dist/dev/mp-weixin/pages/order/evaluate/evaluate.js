@@ -65,7 +65,14 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var uniRate = function uniRate() {return __webpack_require__.e(/*! import() | components/uni-rate/uni-rate */ "components/uni-rate/uni-rate").then(__webpack_require__.bind(null, /*! @/components/uni-rate/uni-rate.vue */ 293));};var _default =
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var uniRate = function uniRate() {return __webpack_require__.e(/*! import() | components/uni-rate/uni-rate */ "components/uni-rate/uni-rate").then(__webpack_require__.bind(null, /*! @/components/uni-rate/uni-rate.vue */ 293));};var imageUpload = function imageUpload() {return __webpack_require__.e(/*! import() | components/mc-image-upload/mc-image-upload */ "components/mc-image-upload/mc-image-upload").then(__webpack_require__.bind(null, /*! ../../../components/mc-image-upload/mc-image-upload.vue */ 268));};var _default =
+
+
+
+
+
+
+
 
 
 
@@ -110,7 +117,8 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
   },
   components: {
-    uniRate: uniRate } };exports.default = _default;
+    uniRate: uniRate,
+    imageUpload: imageUpload } };exports.default = _default;
 
 /***/ }),
 

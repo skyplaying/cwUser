@@ -320,7 +320,7 @@ export default {
 			_self.$refs.petUser.close();
 		},
 		ccTime() {
-			_self.$refs.time.close();
+			_self.$refs.time.close('o');
 			// uni.showTabBar({})
 		},
 		getLocation() {
@@ -351,6 +351,21 @@ export default {
 .content {
 	padding: 40upx 20upx;
 }
+//关于图片上传组件的样式修改
+.imageUpload {
+	position: relative;
+	box-sizing: border-box;
+	/* border: 1px solid #D9D9D9; */
+	/* border-radius: 8upx; */
+
+	background: url(../../static/index/imgUpload.png) no-repeat; /* 修改了下背景图 */
+	background-size: 100%;
+	left: 30upx;
+}
+.imageUpload:before,
+	.imageUpload:after {
+}
+//
 
 .addressBox {
 	margin-bottom: 200upx;

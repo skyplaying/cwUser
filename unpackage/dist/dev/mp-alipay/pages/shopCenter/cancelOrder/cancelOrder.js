@@ -156,6 +156,19 @@ var _self;var _default =
     },
     radioChange: function radioChange(e) {
       console.log(e.detail.value);
+    },
+    submitBtn: function submitBtn() {
+      uni.showToast({
+        title: '谢谢您的反馈',
+        duration: 1500,
+        success: function success() {
+          //  提交完成回到首页
+          uni.navigateTo({
+            url: '../../index/index' });
+
+        } });
+
+
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-alipay/dist/index.js */ 1)["default"]))
 

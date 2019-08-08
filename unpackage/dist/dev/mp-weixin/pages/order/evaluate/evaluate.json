@@ -1,6 +1,7 @@
 {
   "navigationBarTitleText": "评价",
   "usingComponents": {
-    "uni-rate": "/components/uni-rate/uni-rate"
+    "uni-rate": "/components/uni-rate/uni-rate",
+    "image-upload": "/components/mc-image-upload/mc-image-upload"
   }
 }
