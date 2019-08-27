@@ -1,1 +1,0 @@
-<view class="page"><block wx:if="{{isok}}"><view class="conatiner"><uni-load-more vue-id="1" status="{{status}}" bind:__l="__l"></uni-load-more></view></block><block wx:else><view class="container-loading"><image src="../../static/loading.gif"></image></view></block></view>

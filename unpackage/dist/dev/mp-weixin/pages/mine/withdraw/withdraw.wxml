@@ -1,1 +1,0 @@
-<view class="page"><block wx:if="{{isok}}"><view class="conatiner"><button class="online" open-type="contact" id="on" data-event-opts="{{[['tap',[['online',['$event']]]]]}}" bindtap="__e">联系客服</button></view></block></view>
